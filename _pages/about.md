@@ -1,3 +1,4 @@
+<img src="/assets/images/banner.jpg" alt="" style="width:100%; border-radius:8px; margin-bottom:30px;">
 ---
 
 layout: single  
