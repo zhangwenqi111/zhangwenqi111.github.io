@@ -33,55 +33,6 @@ author:
   uri              : ""
   email            : "liaj@bnu.edu.cn" # 文档中的官方邮箱
 
-  # 学术网站（原无效链接已全部移除，有真实链接后自行添加）
-  academia         : ""
-  arxiv            : ""
-  googlescholar    : "" # 后续添加Google Scholar个人主页链接
-  inspire-hep      : ""
-  impactstory      : ""
-  orcid            : "" # 后续添加ORCID号
-  semantic         : ""
-  ssrn             : ""
-  pubmed           : ""
-  researchgate     : ""
-  scopus           : ""
-  zotero           : ""
-
-  # 代码仓库（不需要的全部留空）
-  bitbucket        : ""
-  codepen          : ""
-  dribbble         : ""
-  github           : "zhangwenqi111" # 你的GitHub用户名
-  kaggle           : ""
-  stackoverflow    : ""
-
-  # 社交媒体（学术网站不需要，全部留空）
-  artstation       : ""
-  bluesky          : ""
-  facebook         : ""
-  flickr           : ""
-  foursquare       : ""
-  goodreads        : ""
-  google_plus      : ""
-  keybase          : ""
-  instagram        : ""
-  lastfm           : ""
-  linkedin         : ""
-  mastodon         : ""
-  medium           : ""
-  pinterest        : ""
-  soundcloud       : ""
-  steam            : ""
-  telegram         : ""
-  tumblr           : ""
-  twitter          : ""
-  vine             : ""
-  weibo            : ""
-  wikipedia        : ""
-  xing             : ""
-  youtube          : ""
-  zhihu            : ""
-
 # ==============================================
 # 🟡 出版物分类（已根据你的文档调整）
 # ==============================================
