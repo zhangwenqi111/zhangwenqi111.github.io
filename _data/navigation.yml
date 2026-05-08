@@ -7,5 +7,4 @@ main:
     url: /resources/
   - title: "发表论文"
     url: /publications/
-  - title: "联系我们"
-    url: /contact/
+
