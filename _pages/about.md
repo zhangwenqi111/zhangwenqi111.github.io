@@ -6,7 +6,7 @@ title: "北京师范大学李安婕课题组"
 classes: wide  # 宽屏布局，非常适合首页，强烈推荐保留
 ---
 
-<img src="/assets/images/banner.jpg" alt="北京师范大学李安婕课题组实验室" style="width:100%; border-radius:8px; margin-bottom:30px;">
+<img src="/assets/images/banner.jpg" alt="院徽" style="width:100%; border-radius:8px; margin-bottom:30px;">
 
 ## 课题组简介
 
