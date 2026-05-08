@@ -1,11 +1,11 @@
 ---
----
-layout: single  # ✅ 把home改成single，这是关键！
+
+layout: single  
 author_profile: true
 permalink: /
 title: "北京师范大学李安婕课题组"
 classes: wide  # 可选：让内容区域更宽，更适合课题组介绍
----
+
 ---
 
 ## 课题组简介
