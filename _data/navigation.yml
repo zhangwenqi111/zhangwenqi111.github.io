@@ -1,6 +1,4 @@
 main:
-  - title: "首页"
-    url: /
   - title: "新闻动态"
     url: /posts/
   - title: "研究方向"
