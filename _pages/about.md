@@ -1,13 +1,12 @@
-<img src="/assets/images/banner.jpg" alt="" style="width:100%; border-radius:8px; margin-bottom:30px;">
 ---
-
-layout: single  
+layout: single
 author_profile: true
 permalink: /
 title: "北京师范大学李安婕课题组"
-classes: wide  # 可选：让内容区域更宽，更适合课题组介绍
-
+classes: wide  # 宽屏布局，非常适合首页，强烈推荐保留
 ---
+
+<img src="/assets/images/banner.jpg" alt="北京师范大学李安婕课题组实验室" style="width:100%; border-radius:8px; margin-bottom:30px;">
 
 ## 课题组简介
 
@@ -26,4 +25,7 @@ classes: wide  # 可选：让内容区域更宽，更适合课题组介绍
 
 ## 招生信息
 
-热忱欢迎对**水污染控制及溯源、生物能源、环境微生物**感兴趣并具备相关知识及研究背景的同学们加盟！有意者请发送个人简历至：**liaj@bnu.edu.cn**
+<div style="background-color: #f0f7ff; border-left: 4px solid #005197; padding: 15px 20px; border-radius: 4px; margin: 20px 0;">
+热忱欢迎对<strong>水污染控制及溯源、生物能源、环境微生物</strong>感兴趣并具备相关知识及研究背景的同学们加盟！<br><br>
+有意者请发送个人简历至：<strong>liaj@bnu.edu.cn</strong>
+</div>
