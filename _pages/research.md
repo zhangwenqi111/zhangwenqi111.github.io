@@ -26,7 +26,7 @@ classes: wide
     </div>
   </div>
 
-  <!-- 方向3：小流域污染溯源及微生物修复技术（待添加图片） -->
+  <!-- 方向3：小流域污染溯源及微生物修复技术 -->
   <div style="border:1px solid #eee; border-radius:8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: all 0.3s ease;">
     <div style="background-color: #f5f5f5; height:200px; display: flex; align-items: center; justify-content: center; color:#999;">
       待添加图片
@@ -37,7 +37,7 @@ classes: wide
     </div>
   </div>
 
-  <!-- 方向4：水环境微生物过程（待添加图片） -->
+  <!-- 方向4：水环境微生物过程 -->
   <div style="border:1px solid #eee; border-radius:8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: all 0.3s ease;">
     <div style="background-color: #f5f5f5; height:200px; display: flex; align-items: center; justify-content: center; color:#999;">
       待添加图片
