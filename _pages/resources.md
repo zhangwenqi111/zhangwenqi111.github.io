@@ -21,32 +21,25 @@ author_profile: true
 ## 📚 FLUENT软件操作教程
 
 ### 基础入门
-- **[CFD流程简介及mesh网格划分步骤简介.docx](/assets/files/CFD流程简介及mesh网格划分步骤简介.docx)**
-  - 内容：ANSYS Workbench完整仿真流程介绍，包括DM几何建模、Mesh网格划分、边界命名和网格质量检查的详细步骤
-  - 适合：完全零基础的CFD初学者，快速掌握Workbench基本操作
+- **[CFD流程简介及mesh网格划分步骤简介.docx](/assets/files/FLUENT软件操作教程/CFD流程简介及mesh网格划分步骤简介.docx)**
 
 ### 网格划分专题
-- **[CFD中利用ICEM进行结构网格划分介绍.pdf](/assets/files/CFD中利用ICEM进行结构网格划分介绍.pdf)**
-  - 内容：ANSYS ICEM CFD结构化网格划分权威教程，详细讲解了分块思路、O-grid技术、块关联和网格质量优化方法
-  - 适合：需要掌握高质量六面体网格划分技术的同学
+- **[CFD中利用ICEM进行结构网格划分介绍.pdf](/assets/files/FLUENT软件操作教程/CFD中利用ICEM进行结构网格划分介绍.pdf)**
 
 ### 研究案例
-- **[基于FLUENT对气升式循环池的数值模拟及试验研究_来有炜.pdf](/assets/files/基于FLUENT对气升式循环池的数值模拟及试验研究_来有炜.pdf)**
-  - 内容：兰州交通大学硕士学位论文，系统介绍了气升式反应器的欧拉-PBM耦合模型建立、边界条件设置、模型验证及参数优化
-  - 包含：气液两相流模拟、溶解氧传质模型、ASM1生化反应耦合模型的完整实现步骤
-  - 适合：从事气升式反应器、曝气池数值模拟研究的同学
+- **[基于FLUENT对气升式循环池的数值模拟及试验研究_来有炜.pdf](/assets/files/FLUENT软件操作教程/基于FLUENT对气升式循环池的数值模拟及试验研究_来有炜.pdf)**
 
 ---
 
 ## 🛠️ SolidWorks建模教程
 
 ### 基础入门
-- **[草图绘制.docx](/assets/files/草图绘制.docx)**
+- **[草图绘制.docx](/assets/files/solidworks建模软件/草图绘制.docx)**
   - 内容：SolidWorks二维草图绘制基础，包括基准面创建、基本图形绘制、转换实体引用、镜像和阵列等核心操作
   - 适合：刚接触SolidWorks的初学者
 
 ### 实体建模
-- **[实体特征.docx](/assets/files/实体特征.docx)**
+- **[实体特征.docx](/assets/files/solidworks建模软件/实体特征.docx)**
   - 内容：从二维草图生成三维模型的四大核心操作：拉伸、旋转、扫描和放样，详细讲解了每种特征的使用方法和适用场景
   - 适合：掌握草图绘制后，学习三维实体建模的同学
 
@@ -54,7 +47,7 @@ author_profile: true
 
 ## 🧮 数值计算方法原理介绍
 
-- **[一维对流弥散方程的数值求解.docx](/assets/files/一维对流弥散方程的数值求解.docx)**
+- **[一维对流弥散方程的数值求解.docx](/assets/files/数值计算方法原理介绍/一维对流弥散方程的数值求解.docx)**
   - 内容：有限差分法基础教程，以一维对流弥散方程为例，详细推导了显式和隐式离散格式，并给出了数值解与解析解的对比结果
   - 适合：学习CFD数值方法基础，理解离散化原理的同学
 
