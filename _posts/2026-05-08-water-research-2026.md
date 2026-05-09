@@ -1,6 +1,6 @@
 ---
 title: "课题组丁家正同学的论文被《Water Research》接收发表"
-date: 2026-05-08
+date: 2026-04-08
 categories:
   - 论文发表
 excerpt: "本课题组丁家正同学关于微藻-细菌颗粒污泥启动机制的最新研究成果被环境领域顶级期刊《Water Research》接收。"
