@@ -10,7 +10,7 @@ classes: wide
 
   <!-- 方向1：废水生物处理新技术及新工艺 -->
   <div style="border:1px solid #eee; border-radius:8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: all 0.3s ease;">
-    <img src="/assets/images/research1.jpg" alt="废水生物处理新技术及新工艺" style="width:100%; height:200px; object-fit: cover;">
+    <img src="/assets/images/research1.png" alt="废水生物处理新技术及新工艺" style="width:100%; height:200px; object-fit: cover;">
     <div style="padding:20px;">
       <h3 style="color:#005197; margin-top:0; margin-bottom:10px;">废水生物处理新技术及新工艺</h3>
       <p style="color:#555; line-height:1.6;">开发高效低耗的废水生物处理技术，优化传统工艺运行参数，针对高浓度有机废水、难降解工业废水等开发新型生物处理工艺。</p>
