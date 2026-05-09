@@ -1,6 +1,6 @@
 ---
 title: "课题组王丹阳同学的论文被《Bioresource Technology》接收发表"
-date: 2026-05-01
+date: 2026-03-01
 categories:
   - 论文发表
 excerpt: "本课题组王丹阳同学关于天然生物水凝胶微生物固定化技术的研究成果被《Bioresource Technology》接收。"
