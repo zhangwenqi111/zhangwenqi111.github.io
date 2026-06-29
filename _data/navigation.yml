@@ -1,12 +1,21 @@
 main:
   - title: "新闻动态"
-    url: /posts/
+    url: /news/
   - title: "研究方向"
     url: /research/
   - title: "学习资源"
     url: /resources/
+    children:
+      - title: "数值模拟"
+        url: /resources/#numerical-simulation
+      - title: "分子动力学"
+        url: /resources/#molecular-dynamics
+      - title: "机器学习"
+        url: /resources/#machine-learning
+      - title: "生命周期评价"
+        url: /resources/#lca
   - title: "发表论文"
     url: /publications/
-    - title: "数据平台"
+  - title: "数据平台"
     url: /data/
 
