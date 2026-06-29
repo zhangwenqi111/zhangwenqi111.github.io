@@ -8,16 +8,37 @@
           <li class="masthead__menu-item masthead__menu-item--lg persist {% if page.url == '/' or page.url == '/index.html' %}selected{% endif %}">
             <a href="{{ base_path }}/">{{ site.title }}</a>
           </li>
+
           {% for link in site.data.navigation.main %}
             {% if link.url contains 'http' %}
               {% assign domain = '' %}
             {% else %}
               {% assign domain = base_path %}
             {% endif %}
+
+            {% if link.children %}
+            <!-- 带子菜单的导航项：学习资源 -->
+            <li class="masthead__menu-item dropdown {% if page.url contains link.url and link.url != '/' %}selected{% endif %}">
+              <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
+              <ul class="dropdown-menu">
+                {% for child in link.children %}
+                  {% if child.url contains 'http' %}
+                    {% assign child_domain = '' %}
+                  {% else %}
+                    {% assign child_domain = base_path %}
+                  {% endif %}
+                  <li><a href="{{ child_domain }}{{ child.url }}">{{ child.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% else %}
+            <!-- 普通导航项 -->
             <li class="masthead__menu-item {% if page.url contains link.url and link.url != '/' %}selected{% endif %}">
               <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
             </li>
+            {% endif %}
           {% endfor %}
+
           <li id="theme-toggle" class="masthead__menu-item persist tail">
             <a role="button" aria-labelledby="theme-icon"><i id="theme-icon" class="fa-solid fa-sun" aria-hidden="true" title="toggle theme"></i></a>
           </li>
@@ -27,3 +48,61 @@
     </div>
   </div>
 </div>
+
+<!-- 下拉菜单样式：与网站北师大蓝风格统一 -->
+<style>
+/* 下拉菜单基础容器 */
+.masthead__menu-item.dropdown {
+  position: relative;
+}
+
+/* 下拉菜单默认隐藏 */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  min-width: 160px;
+  z-index: 9999;
+  padding: 6px 0;
+  margin: 0;
+  list-style: none;
+}
+
+.dropdown-menu li {
+  width: 100%;
+  margin: 0;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 18px;
+  color: #333333;
+  text-decoration: none;
+  white-space: nowrap;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+}
+
+/* 悬停效果：北师大蓝 */
+.dropdown-menu a:hover {
+  background-color: #f0f7ff;
+  color: #005197;
+}
+
+/* 鼠标悬停父菜单时显示下拉 */
+.masthead__menu-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* 适配移动端：汉堡菜单内不显示下拉，保持原折叠逻辑 */
+@media screen and (max-width: 768px) {
+  .dropdown-menu {
+    display: none !important;
+  }
+}
+</style>
