@@ -98,7 +98,7 @@ classes: wide
 
 <script>
 // 在这里设置你的访问密码
-const CORRECT_PASSWORD = "liaj2026";
+const CORRECT_PASSWORD = "000516";
 
 function checkPassword() {
   const input = document.getElementById("password-input").value;
