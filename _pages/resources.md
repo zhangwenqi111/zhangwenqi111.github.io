@@ -49,7 +49,7 @@ classes: wide
 包含分子动力学模拟、GROMACS/LAMMPS软件教程、界面作用机制、分子对接等相关资料。
 
 - **[分子对接相关软件及教程（师大云盘）](https://pan.bnu.edu.cn/l/V1IfPP)**
-  - 来源：李莹分享，包含AutoDock、Vina等分子对接软件安装包及操作教程。
+  - 来源：包含AutoDock、Vina等分子对接软件安装包及操作教程。
 
 > 更多分子动力学模拟资料（如GROMACS入门指南）将陆续补充。
 
@@ -66,7 +66,7 @@ classes: wide
 包含LCA方法学、Simapro软件教程、污水处理工艺碳排放核算等相关资料。
 
 - **[LCA学习资料（师大云盘）](https://pan.bnu.edu.cn/l/U195hm)**
-  - 来源：李莹分享，包含LCA方法论文档、Simapro入门指南及相关论文。
+  - 来源：包含LCA方法论文档、Simapro入门指南及相关论文。
 
 ---
 
