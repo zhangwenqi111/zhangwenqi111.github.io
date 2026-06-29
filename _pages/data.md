@@ -11,7 +11,6 @@ classes: wide
 
 ---
 
-<!-- 密码输入区域 -->
 <div id="password-section" style="max-width: 500px; margin: 40px auto; text-align: center; padding: 30px; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
   <h3 style="color: #005197; margin-top: 0;">请输入访问密码</h3>
   <p style="color: #666; margin-bottom: 20px;">输入正确密码后即可查看全部数据集</p>
@@ -22,17 +21,14 @@ classes: wide
     style="width: 100%; padding: 10px 15px; border: 1px solid #ddd; border-radius: 4px; font-size: 16px; margin-bottom: 15px; box-sizing: border-box;"
   >
   <button 
-    onclick="checkPassword()"
+    id="submit-btn"
     style="width: 100%; padding: 10px; background-color: #005197; color: white; border: none; border-radius: 4px; font-size: 16px; cursor: pointer; transition: background-color 0.2s;"
-    onmouseover="this.style.backgroundColor='#003d73'"
-    onmouseout="this.style.backgroundColor='#005197'"
   >
     确认访问
   </button>
   <p id="error-tip" style="color: #d93025; margin-top: 15px; display: none;">密码错误，请重试</p>
 </div>
 
-<!-- 数据内容区域（默认隐藏） -->
 <div id="data-content" style="display: none;">
 
   ## 🧬 宏基因组测序数据集
@@ -97,45 +93,57 @@ classes: wide
 </div>
 
 <script>
-// 在这里设置你的访问密码
+// 访问密码，可自行修改
 const CORRECT_PASSWORD = "liaj2026";
 
-function checkPassword() {
-  const input = document.getElementById("password-input").value;
+document.addEventListener("DOMContentLoaded", function() {
+  const input = document.getElementById("password-input");
+  const submitBtn = document.getElementById("submit-btn");
   const errorTip = document.getElementById("error-tip");
   const passwordSection = document.getElementById("password-section");
   const dataContent = document.getElementById("data-content");
 
-  if (input === CORRECT_PASSWORD) {
-    // 密码正确：隐藏输入框，显示内容
-    passwordSection.style.display = "none";
-    dataContent.style.display = "block";
-    // 密码存入本地存储，24小时内无需重复输入
-    localStorage.setItem("dataPlatformAccess", "true");
-    const expireTime = new Date().getTime() + 24 * 60 * 60 * 1000;
-    localStorage.setItem("dataPlatformExpire", expireTime);
-  } else {
-    // 密码错误：显示提示
-    errorTip.style.display = "block";
+  // 密码验证函数
+  function checkPassword() {
+    const value = input.value;
+    if (value === CORRECT_PASSWORD) {
+      passwordSection.style.display = "none";
+      dataContent.style.display = "block";
+      errorTip.style.display = "none";
+      // 存入本地存储，24小时有效
+      localStorage.setItem("dataPlatformAccess", "true");
+      const expireTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+      localStorage.setItem("dataPlatformExpire", expireTime);
+    } else {
+      errorTip.style.display = "block";
+    }
   }
-}
 
-// 页面加载时检查是否已经验证过
-window.onload = function() {
+  // 绑定按钮点击事件
+  submitBtn.addEventListener("click", checkPassword);
+
+  // 绑定回车键提交
+  input.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+      checkPassword();
+    }
+  });
+
+  // 页面加载时检查是否已验证
   const hasAccess = localStorage.getItem("dataPlatformAccess");
   const expireTime = localStorage.getItem("dataPlatformExpire");
   const now = new Date().getTime();
-  
   if (hasAccess === "true" && now < expireTime) {
-    document.getElementById("password-section").style.display = "none";
-    document.getElementById("data-content").style.display = "block";
+    passwordSection.style.display = "none";
+    dataContent.style.display = "block";
   }
-}
 
-// 支持回车键提交
-document.getElementById("password-input").addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
-    checkPassword();
-  }
+  // 按钮悬停效果
+  submitBtn.addEventListener("mouseover", function() {
+    this.style.backgroundColor = "#003d73";
+  });
+  submitBtn.addEventListener("mouseout", function() {
+    this.style.backgroundColor = "#005197";
+  });
 });
 </script>
