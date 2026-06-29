@@ -17,17 +17,17 @@
             {% endif %}
 
             {% if link.children %}
-            <!-- 带子菜单的导航项 -->
-            <li class="masthead__menu-item nav-dropdown {% if page.url contains '/resources/' %}selected{% endif %}">
-              <a href="{{ domain }}{{ link.url }}" class="dropdown-trigger">{{ link.title }}</a>
-              <ul class="dropdown-submenu">
+            <!-- 带子菜单的导航项：不可点击，纯悬停 -->
+            <li class="masthead__menu-item dropdown {% if page.url contains link.url and link.url != '/' %}selected{% endif %}">
+              <span class="dropdown-toggle">{{ link.title }}</span>
+              <ul class="dropdown-menu">
                 {% for child in link.children %}
                   {% if child.url contains 'http' %}
                     {% assign child_domain = '' %}
                   {% else %}
                     {% assign child_domain = base_path %}
                   {% endif %}
-                  <li><a href="{{ child_domain }}{{ child.url }}" class="dropdown-item">{{ child.title }}</a></li>
+                  <li><a href="{{ child_domain }}{{ child.url }}">{{ child.title }}</a></li>
                 {% endfor %}
               </ul>
             </li>
@@ -49,21 +49,31 @@
   </div>
 </div>
 
-<!-- 下拉菜单修复样式 -->
+<!-- 下拉菜单样式：与网站北师大蓝风格统一 -->
 <style>
-/* 下拉容器相对定位 */
-.nav-dropdown {
+/* 下拉菜单基础容器 */
+.masthead__menu-item.dropdown {
   position: relative;
 }
 
-/* 主菜单鼠标样式：提示不可点击 */
-.dropdown-trigger {
-  cursor: default;
+/* 父级文本样式（模拟导航链接） */
+.dropdown-toggle {
+  display: block;
+  padding: 10px 18px;
+  color: #333333;
+  text-decoration: none;
+  font-size: 0.9em;
+  cursor: default;            /* 鼠标变为默认箭头，表示不可点击 */
+  transition: color 0.2s;
 }
 
-/* 下拉菜单：默认隐藏，强制纵向排列 */
-.dropdown-submenu {
-  display: none !important;
+.dropdown-toggle:hover {
+  color: #005197;
+}
+
+/* 下拉菜单默认隐藏 */
+.dropdown-menu {
+  display: none;
   position: absolute;
   top: 100%;
   left: 0;
@@ -71,51 +81,45 @@
   border: 1px solid #eee;
   border-radius: 4px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  min-width: 160px;
+  min-width: 180px;
   z-index: 9999;
   padding: 6px 0;
   margin: 0;
   list-style: none;
-  flex-direction: column;
 }
 
-/* 强制子项纵向铺满 */
-.dropdown-submenu li {
+/* 鼠标悬停父菜单时显示下拉 */
+.masthead__menu-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* 下拉菜单每一项 */
+.dropdown-menu li {
+  display: block;            /* 强制块级，上下排列 */
   width: 100%;
-  display: block !important;
   margin: 0;
   padding: 0;
 }
 
-.dropdown-submenu a.dropdown-item {
+.dropdown-menu a {
   display: block;
-  width: 100%;
-  box-sizing: border-box;
   padding: 10px 18px;
   color: #333333;
   text-decoration: none;
   white-space: nowrap;
   font-size: 0.9em;
-  line-height: 1.5;
   transition: all 0.2s ease;
-  border-bottom: none;
 }
 
-/* 悬停高亮：北师大蓝 */
-.dropdown-submenu a.dropdown-item:hover {
+/* 悬停效果：北师大蓝 */
+.dropdown-menu a:hover {
   background-color: #f0f7ff;
   color: #005197;
 }
 
-/* 核心：鼠标悬停父菜单立即显示下拉 */
-.nav-dropdown:hover .dropdown-submenu {
-  display: flex !important;
-}
-
-/* 移动端适配：汉堡菜单内隐藏下拉 */
+/* 适配移动端：彻底隐藏下拉（避免在汉堡菜单中变形） */
 @media screen and (max-width: 768px) {
-  .dropdown-submenu,
-  .nav-dropdown:hover .dropdown-submenu {
+  .dropdown-menu {
     display: none !important;
   }
 }
