@@ -59,6 +59,18 @@ classes: wide
     </p>
   </div>
 
+  <!-- ✅ 新增：张文琦的宏基因组原始数据 -->
+  <div style="border: 1px solid #eee; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <h3 style="color: #005197; margin-top: 0;">连续流好氧颗粒污泥反应器宏基因组原始数据</h3>
+    <p><strong>数据提供：</strong>张文琦</p>
+    <p><strong>数据类型：</strong>宏基因组原始测序数据</p>
+    <p><strong>存储方式：</strong>师大云盘</p>
+    <p><strong>说明：</strong>连续流好氧颗粒污泥反应器运行期间的宏基因组原始序列文件，可用于进一步生信分析。</p>
+    <p>
+      <a href="https://pan.bnu.edu.cn/l/d1pVHv" target="_blank" style="color: #005197;">📥 访问云盘下载</a>
+    </p>
+  </div>
+
   ## ⚗️ 反应器运行实验数据
 
   <div style="border: 1px solid #eee; border-radius: 8px; padding: 20px; margin: 20px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
@@ -92,4 +104,4 @@ classes: wide
 
 </div>
 
-<script src="/assets/js/password.js"></script>
+<script src="{{ '/assets/js/password.js' | relative_url }}"></script>
