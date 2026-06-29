@@ -4,15 +4,7 @@ main:
   - title: "研究方向"
     url: /research/
   - title: "学习资源"
-    children:
-      - title: "数值模拟"
-        url: /resources/#numerical-simulation
-      - title: "分子动力学"
-        url: /resources/#molecular-dynamics
-      - title: "机器学习"
-        url: /resources/#machine-learning
-      - title: "生命周期评价"
-        url: /resources/#lca
+    url: /resources/
   - title: "发表论文"
     url: /publications/
   - title: "数据平台"
