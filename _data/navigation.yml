@@ -3,7 +3,7 @@ main:
     url: /news/
   - title: "研究方向"
     url: /research/
-   - title: "学习资源"
+  - title: "学习资源"
     url: "#"
     children:
       - title: "数值模拟"
