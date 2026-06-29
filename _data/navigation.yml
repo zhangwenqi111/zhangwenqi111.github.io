@@ -4,7 +4,6 @@ main:
   - title: "研究方向"
     url: /research/
   - title: "学习资源"
-    url: "#"
     children:
       - title: "数值模拟"
         url: /resources/#numerical-simulation
