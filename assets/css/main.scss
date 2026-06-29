@@ -41,3 +41,9 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
+/* 强制隐藏所有可能残存的下拉菜单 */
+.masthead__menu-item.dropdown .dropdown-menu,
+.masthead__menu-item .sub-menu,
+nav .dropdown-menu {
+  display: none !important;
+}
