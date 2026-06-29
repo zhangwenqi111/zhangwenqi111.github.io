@@ -65,3 +65,29 @@ classes: wide
 ## 📝 说明
 - 所有资源仅供课题组内部学习研究使用，请勿用于商业用途
 - 如需补充其他方向的学习资料，或有资源分享需求，请联系课题组管理员
+
+<!-- 解决锚点跳转被主题脚本拦截的补丁 -->
+<script>
+(function() {
+  if (window.location.hash) {
+    // 如果直接通过锚点进入页面，平滑滚动到对应位置
+    setTimeout(function() {
+      var target = document.querySelector(window.location.hash);
+      if (target) target.scrollIntoView({ behavior: 'smooth' });
+    }, 100);
+  }
+  // 拦截所有从下拉菜单发出的锚点链接，手动跳转
+  document.addEventListener('click', function(e) {
+    var link = e.target.closest('.dropdown-menu a');
+    if (link && link.hash) {
+      e.preventDefault();
+      var target = document.querySelector(link.hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+        // 更新地址栏，但不触发页面跳转
+        history.pushState(null, null, link.hash);
+      }
+    }
+  });
+})();
+</script>
