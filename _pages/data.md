@@ -96,54 +96,63 @@ classes: wide
 // 访问密码，可自行修改
 const CORRECT_PASSWORD = "liaj2026";
 
-document.addEventListener("DOMContentLoaded", function() {
-  const input = document.getElementById("password-input");
-  const submitBtn = document.getElementById("submit-btn");
-  const errorTip = document.getElementById("error-tip");
-  const passwordSection = document.getElementById("password-section");
-  const dataContent = document.getElementById("data-content");
+// 直接获取页面元素（脚本在元素之后，DOM已经就绪）
+const input = document.getElementById("password-input");
+const submitBtn = document.getElementById("submit-btn");
+const errorTip = document.getElementById("error-tip");
+const passwordSection = document.getElementById("password-section");
+const dataContent = document.getElementById("data-content");
 
-  // 密码验证函数
-  function checkPassword() {
-    const value = input.value;
-    if (value === CORRECT_PASSWORD) {
-      passwordSection.style.display = "none";
-      dataContent.style.display = "block";
-      errorTip.style.display = "none";
-      // 存入本地存储，24小时有效
+// 密码验证函数
+function checkPassword() {
+  const value = input.value;
+  if (value === CORRECT_PASSWORD) {
+    passwordSection.style.display = "none";
+    dataContent.style.display = "block";
+    errorTip.style.display = "none";
+    // 存入本地存储，24小时有效（添加异常处理防止隐私模式下localStorage不可用）
+    try {
       localStorage.setItem("dataPlatformAccess", "true");
       const expireTime = new Date().getTime() + 24 * 60 * 60 * 1000;
       localStorage.setItem("dataPlatformExpire", expireTime);
-    } else {
-      errorTip.style.display = "block";
+    } catch (e) {
+      // localStorage 不可用，忽略即可
     }
+  } else {
+    errorTip.style.display = "block";
   }
+}
 
-  // 绑定按钮点击事件
-  submitBtn.addEventListener("click", checkPassword);
+// 绑定按钮点击事件
+submitBtn.addEventListener("click", checkPassword);
 
-  // 绑定回车键提交
-  input.addEventListener("keypress", function(e) {
-    if (e.key === "Enter") {
-      checkPassword();
+// 绑定回车键提交
+input.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    checkPassword();
+  }
+});
+
+// 页面加载时检查是否已验证（24小时内自动登录）
+(function() {
+  try {
+    const hasAccess = localStorage.getItem("dataPlatformAccess");
+    const expireTime = localStorage.getItem("dataPlatformExpire");
+    const now = new Date().getTime();
+    if (hasAccess === "true" && now < expireTime) {
+      passwordSection.style.display = "none";
+      dataContent.style.display = "block";
     }
-  });
-
-  // 页面加载时检查是否已验证
-  const hasAccess = localStorage.getItem("dataPlatformAccess");
-  const expireTime = localStorage.getItem("dataPlatformExpire");
-  const now = new Date().getTime();
-  if (hasAccess === "true" && now < expireTime) {
-    passwordSection.style.display = "none";
-    dataContent.style.display = "block";
+  } catch (e) {
+    // 如果localStorage不可用，直接显示密码输入界面，不报错
   }
+})();
 
-  // 按钮悬停效果
-  submitBtn.addEventListener("mouseover", function() {
-    this.style.backgroundColor = "#003d73";
-  });
-  submitBtn.addEventListener("mouseout", function() {
-    this.style.backgroundColor = "#005197";
-  });
+// 按钮悬停效果
+submitBtn.addEventListener("mouseover", function() {
+  this.style.backgroundColor = "#003d73";
+});
+submitBtn.addEventListener("mouseout", function() {
+  this.style.backgroundColor = "#005197";
 });
 </script>
