@@ -92,67 +92,86 @@ classes: wide
 
 </div>
 
+{% raw %}
 <script>
-// 访问密码，可自行修改
-const CORRECT_PASSWORD = "liaj2026";
-
-// 直接获取页面元素（脚本在元素之后，DOM已经就绪）
-const input = document.getElementById("password-input");
-const submitBtn = document.getElementById("submit-btn");
-const errorTip = document.getElementById("error-tip");
-const passwordSection = document.getElementById("password-section");
-const dataContent = document.getElementById("data-content");
-
-// 密码验证函数
-function checkPassword() {
-  const value = input.value;
-  if (value === CORRECT_PASSWORD) {
-    passwordSection.style.display = "none";
-    dataContent.style.display = "block";
-    errorTip.style.display = "none";
-    // 存入本地存储，24小时有效（添加异常处理防止隐私模式下localStorage不可用）
-    try {
-      localStorage.setItem("dataPlatformAccess", "true");
-      const expireTime = new Date().getTime() + 24 * 60 * 60 * 1000;
-      localStorage.setItem("dataPlatformExpire", expireTime);
-    } catch (e) {
-      // localStorage 不可用，忽略即可
-    }
-  } else {
-    errorTip.style.display = "block";
-  }
-}
-
-// 绑定按钮点击事件
-submitBtn.addEventListener("click", checkPassword);
-
-// 绑定回车键提交
-input.addEventListener("keypress", function(e) {
-  if (e.key === "Enter") {
-    checkPassword();
-  }
-});
-
-// 页面加载时检查是否已验证（24小时内自动登录）
 (function() {
-  try {
-    const hasAccess = localStorage.getItem("dataPlatformAccess");
-    const expireTime = localStorage.getItem("dataPlatformExpire");
-    const now = new Date().getTime();
-    if (hasAccess === "true" && now < expireTime) {
-      passwordSection.style.display = "none";
-      dataContent.style.display = "block";
-    }
-  } catch (e) {
-    // 如果localStorage不可用，直接显示密码输入界面，不报错
-  }
-})();
+  // 访问密码，可自行修改
+  var CORRECT_PASSWORD = "liaj2026";
 
-// 按钮悬停效果
-submitBtn.addEventListener("mouseover", function() {
-  this.style.backgroundColor = "#003d73";
-});
-submitBtn.addEventListener("mouseout", function() {
-  this.style.backgroundColor = "#005197";
-});
+  // 等待 DOM 完全就绪（防御性写法）
+  function onReady(fn) {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', fn);
+    } else {
+      fn();
+    }
+  }
+
+  onReady(function() {
+    // 获取元素
+    var input = document.getElementById("password-input");
+    var submitBtn = document.getElementById("submit-btn");
+    var errorTip = document.getElementById("error-tip");
+    var passwordSection = document.getElementById("password-section");
+    var dataContent = document.getElementById("data-content");
+
+    // 元素存在性检查（如果缺失，说明 ID 不匹配或页面结构变了）
+    if (!input || !submitBtn || !errorTip || !passwordSection || !dataContent) {
+      console.error("密码保护功能初始化失败：缺少必要的页面元素，请检查 HTML 中的 ID 是否与脚本匹配。");
+      return; // 直接退出，不绑定任何事件
+    }
+
+    // 密码验证函数
+    function checkPassword() {
+      var value = input.value;
+      if (value === CORRECT_PASSWORD) {
+        passwordSection.style.display = "none";
+        dataContent.style.display = "block";
+        errorTip.style.display = "none";
+        // 存入本地存储，24小时有效
+        try {
+          localStorage.setItem("dataPlatformAccess", "true");
+          var expireTime = new Date().getTime() + 24 * 60 * 60 * 1000;
+          localStorage.setItem("dataPlatformExpire", expireTime.toString());
+        } catch (e) {
+          console.warn("localStorage 不可用，密码状态不会持久化。");
+        }
+      } else {
+        errorTip.style.display = "block";
+      }
+    }
+
+    // 绑定点击事件
+    submitBtn.addEventListener("click", checkPassword);
+
+    // 绑定回车事件
+    input.addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        checkPassword();
+      }
+    });
+
+    // 检查是否已登录（24小时内）
+    try {
+      var hasAccess = localStorage.getItem("dataPlatformAccess");
+      var expireTime = localStorage.getItem("dataPlatformExpire");
+      var now = new Date().getTime();
+      if (hasAccess === "true" && now < parseInt(expireTime, 10)) {
+        passwordSection.style.display = "none";
+        dataContent.style.display = "block";
+      }
+    } catch (e) {}
+
+    // 按钮悬停效果
+    submitBtn.addEventListener("mouseover", function() {
+      this.style.backgroundColor = "#003d73";
+    });
+    submitBtn.addEventListener("mouseout", function() {
+      this.style.backgroundColor = "#005197";
+    });
+
+    console.log("数据平台密码保护已启动（当前密码: " + CORRECT_PASSWORD + "）");
+  });
+})();
 </script>
+{% endraw %}
