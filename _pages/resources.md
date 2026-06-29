@@ -39,12 +39,19 @@ classes: wide
 - **[一维对流弥散方程的数值求解.docx](/assets/files/数值计算方法原理介绍/一维对流弥散方程的数值求解.docx)**
   - 内容：有限差分法基础，显式/隐式离散格式推导与数值解对比
 
+### 更多学习资料
+- **[CFD相关学习资料（师大云盘）](https://pan.bnu.edu.cn/l/z19hYD)**
+  - 来源：李莹分享，包含CFD额外参考文档与案例。
+
 ---
 
 ## ⚛️ 分子动力学 {#molecular-dynamics}
-包含分子动力学模拟、GROMACS/LAMMPS软件教程、界面作用机制等相关资料。
+包含分子动力学模拟、GROMACS/LAMMPS软件教程、界面作用机制、分子对接等相关资料。
 
-> 🚧 本板块内容持续更新中，敬请期待
+- **[分子对接相关软件及教程（师大云盘）](https://pan.bnu.edu.cn/l/V1IfPP)**
+  - 来源：李莹分享，包含AutoDock、Vina等分子对接软件安装包及操作教程。
+
+> 更多分子动力学模拟资料（如GROMACS入门指南）将陆续补充。
 
 ---
 
@@ -58,36 +65,12 @@ classes: wide
 ## ♻️ 生命周期评价 {#lca}
 包含LCA方法学、Simapro软件教程、污水处理工艺碳排放核算等相关资料。
 
-> 🚧 本板块内容持续更新中，敬请期待
+- **[LCA学习资料（师大云盘）](https://pan.bnu.edu.cn/l/U195hm)**
+  - 来源：李莹分享，包含LCA方法论文档、Simapro入门指南及相关论文。
 
 ---
 
 ## 📝 说明
 - 所有资源仅供课题组内部学习研究使用，请勿用于商业用途
+- 云盘链接由课题组成员维护，若链接失效请联系李莹或管理员更新
 - 如需补充其他方向的学习资料，或有资源分享需求，请联系课题组管理员
-
-<!-- 解决锚点跳转被主题脚本拦截的补丁 -->
-<script>
-(function() {
-  if (window.location.hash) {
-    // 如果直接通过锚点进入页面，平滑滚动到对应位置
-    setTimeout(function() {
-      var target = document.querySelector(window.location.hash);
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  }
-  // 拦截所有从下拉菜单发出的锚点链接，手动跳转
-  document.addEventListener('click', function(e) {
-    var link = e.target.closest('.dropdown-menu a');
-    if (link && link.hash) {
-      e.preventDefault();
-      var target = document.querySelector(link.hash);
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-        // 更新地址栏，但不触发页面跳转
-        history.pushState(null, null, link.hash);
-      }
-    }
-  });
-})();
-</script>
